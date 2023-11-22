@@ -345,7 +345,12 @@
 -r:"Library/Bee/artifacts/2000b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aEDbg.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Managers/GameManager.cs"
+"Assets/Scripts/Managers/UiManager.cs"
+"Assets/Scripts/PlayModeLogic/Button.cs"
 "Assets/Scripts/PlayModeLogic/ObjectSpawner.cs"
+"Assets/Scripts/ScriptableObjects/Buttons/ButtonConfig.cs"
+"Assets/Scripts/ScriptableObjects/GameVariabled/GameVariables.cs"
+"Assets/Scripts/Utils/Enums.cs"
 -langversion:9.0
 
 /deterministic

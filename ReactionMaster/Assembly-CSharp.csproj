@@ -43,6 +43,11 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\PlayModeLogic\ObjectSpawner.cs" />
+     <Compile Include="Assets\Scripts\PlayModeLogic\Button.cs" />
+     <Compile Include="Assets\Scripts\Utils\Enums.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\GameVariabled\GameVariables.cs" />
+     <Compile Include="Assets\Scripts\Managers\UiManager.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\Buttons\ButtonConfig.cs" />
      <Folder Include="Assets" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\mergetool.ja.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\images.zh-Hans.txt" />
@@ -84,6 +89,7 @@
      <None Include="Library\PackageCache\com.unity.modules.assetbundle@1.0.0\package.json" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\package.json" />
+     <Folder Include="Assets\Scripts\ScriptableObjects" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\guihelp.ja.txt" />
      <None Include="Library\PackageCache\com.unity.modules.imgui@1.0.0\package.json" />
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Graphics" />
@@ -236,6 +242,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\binmergetool.ja.txt" />
      <Folder Include="Assets\Prefabs" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6" />
+     <Folder Include="Assets\Scripts\ScriptableObjects\Buttons" />
      <None Include="Library\PackageCache\com.unity.modules.uielementsnative@1.0.0\package.json" />
      <Folder Include="Library\PackageCache\com.unity.ide.rider@3.0.21" />
      <None Include="Library\PackageCache\com.unity.modules.unitywebrequestwww@1.0.0\package.json" />
@@ -249,6 +256,7 @@
      <Folder Include="Library\PackageCache\com.unity.2d.animation@7.0.11" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\ValidationConfig.json" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\images.ja.txt" />
+     <Folder Include="Assets\Scripts\Utils" />
      <Folder Include="Library\PackageCache\com.unity.ide.vscode@1.2.5" />
      <Folder Include="Library\PackageCache\com.unity.modules.vehicles@1.0.0" />
      <None Include="Library\PackageCache\com.unity.modules.xr@1.0.0\package.json" />
@@ -309,6 +317,7 @@
      <None Include="Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.Unsafe.xml" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\cm.zh-Hans.txt" />
+     <Folder Include="Assets\Scripts\ScriptableObjects\GameVariabled" />
      <None Include="Library\PackageCache\com.unity.2d.psdimporter@6.0.7\package.json" />
      <None Include="Library\PackageCache\com.unity.modules.unitywebrequest@1.0.0\package.json" />
      <None Include="Library\PackageCache\com.unity.modules.uielements@1.0.0\package.json" />
