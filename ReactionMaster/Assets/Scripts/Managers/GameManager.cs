@@ -13,6 +13,7 @@ namespace Managers
 
         [SerializeField] public GameVariables gameVariables;
         [SerializeField] public UiManager uiManager;
+        [SerializeField] public AnimationManager animationManager;
         [SerializeField] public ObjectSpawner objectSpawner;
 
         [SerializeField] private GameState currentState;
@@ -40,7 +41,12 @@ namespace Managers
 
         private void Start()
         {
-            ChangeState(GameState.PlayMode);
+            ChangeState(GameState.Menu);
+        }
+
+        public void InitializeGame()
+        {
+            gameVariables.ResetGame();
         }
 
         private void ChangeState(GameState newState)
@@ -78,6 +84,9 @@ namespace Managers
 
         private IEnumerator PlayModeState()
         {
+            animationManager.PlayEnterGameAnimation();
+            yield return new WaitForSeconds(3f);
+
             var timer = Instance.gameVariables.NumberOfButtonsToSpawn *
                         Instance.gameVariables.SpawnInterval;
 
@@ -88,15 +97,17 @@ namespace Managers
                 yield return new WaitForSeconds(Instance.gameVariables.SpawnInterval);
                 timer -= Instance.gameVariables.SpawnInterval;
                 Instance.uiManager.UpdateTimeLeftText(timer);
-                if (Instance.gameVariables.SpawnedButtons >= Instance.gameVariables.NumberOfButtonsToSpawn)
-                    ChangeState(GameState.GameOver);
+                if (Instance.gameVariables.SpawnedButtons < Instance.gameVariables.NumberOfButtonsToSpawn) continue;
+                Instance.uiManager.UpdateTimeLeftText(0);
+                Instance.objectSpawner.HideButton();
+                OnGameOver();
             }
         }
 
         private IEnumerator GameOverState()
         {
-            // Access GameVariables here if needed
-            // ...
+            animationManager.PlayEnterGameOverAnimation();
+            Instance.uiManager.UpdatePointsText(Instance.gameVariables.Points);
 
             while (currentState == GameState.GameOver)
                 // GameOver state execution code
@@ -109,7 +120,7 @@ namespace Managers
             ChangeState(GameState.GameOver);
         }
 
-        public void OnRestartGame()
+        public void OnStartGame()
         {
             ChangeState(GameState.PlayMode);
         }

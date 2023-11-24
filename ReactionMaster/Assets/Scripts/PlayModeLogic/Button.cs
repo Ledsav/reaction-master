@@ -1,45 +1,34 @@
 ﻿using System;
-using System.Net.Mime;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
-using Utils;
 
 namespace PlayModeLogic
 {
-    public class Button: MonoBehaviour
+    public class Button : MonoBehaviour
     {
-        public static event Action<ButtonType> Clicked;
-        
         private Image _buttonImage;
-        
+        private int _buttonPoints;
+
         private void Awake()
         {
             _buttonImage = GetComponent<Image>();
         }
+
+        public static event Action<int> Clicked;
+
         public void ClickButton()
         {
-            var gameObjectTag = gameObject.tag;
-            switch (gameObjectTag)
-            {
-                case "GoodButton":
-                    Clicked?.Invoke(ButtonType.Good);
-                    break;
-                case "BadButton":
-                    Clicked?.Invoke(ButtonType.Bad);
-                    break;
-            }
-            
-            gameObject.SetActive(false);   
-            
+            Clicked?.Invoke(_buttonPoints);
+            gameObject.SetActive(false);
         }
-        
+
         public void SetButton(ButtonConfig buttonConfig)
         {
             _buttonImage.sprite = buttonConfig.buttonImage;
             _buttonImage.color = buttonConfig.buttonColor;
+            _buttonPoints = buttonConfig.buttonPoints;
             gameObject.tag = buttonConfig.buttonTag;
-           
         }
     }
 }

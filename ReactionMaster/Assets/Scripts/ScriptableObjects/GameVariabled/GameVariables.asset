@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbab0803163494fae3075a7b6711860, type: 3}
   m_Name: GameVariables
   m_EditorClassIdentifier: 
-  numberOfButtonsToSpawn: 100
-  spawnInterval: 1
+  numberOfButtonsToSpawn: 20
+  spawnedButtons: 6
+  spawnInterval: 0.5
   margins: {x: 150, y: 400, z: 150, w: 150}
   badButtonProbability: 0.2
+  points: 0
