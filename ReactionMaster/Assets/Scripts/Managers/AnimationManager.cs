@@ -23,6 +23,11 @@ namespace Managers
             gameScreenAnimator.SetTrigger("Enter");
         }
 
+        public void PlayExitGameAnimation()
+        {
+            gameScreenAnimator.SetTrigger("Exit");
+        }
+
         public void PlayEnterGameOverAnimation()
         {
             endScreenAnimator.SetTrigger("Enter");

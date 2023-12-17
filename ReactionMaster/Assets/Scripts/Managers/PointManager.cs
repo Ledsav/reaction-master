@@ -15,10 +15,9 @@ namespace Managers
             Button.Clicked -= AddPoints;
         }
 
-        private void AddPoints(int points)
+        private void AddPoints(int? points)
         {
-            Debug.Log("Points added: " + points);
-            GameManager.Instance.gameVariables.Points += points;
+            GameManager.Instance.gameVariables.Points += points ?? 0;
         }
     }
 }

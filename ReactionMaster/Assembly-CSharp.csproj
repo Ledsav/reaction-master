@@ -45,11 +45,12 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\GameVariabled\GameVariables.cs" />
      <Compile Include="Assets\Scripts\PlayModeLogic\Button.cs" />
      <Compile Include="Assets\Scripts\Utils\Enums.cs" />
+     <Compile Include="Assets\Scripts\Managers\PointManager.cs" />
      <Compile Include="Assets\Scripts\Managers\UiManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\AnimationManager.cs" />
      <Compile Include="Assets\Scripts\PlayModeLogic\ObjectSpawner.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Buttons\ButtonConfig.cs" />
-     <Compile Include="Assets\Scripts\Managers\PointManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\AnimationManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\CursorManager.cs" />
      <Folder Include="Assets" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\mergetool.ja.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\images.zh-Hans.txt" />
@@ -131,6 +132,7 @@
      <Folder Include="Library\PackageCache\com.unity.2d.path@5.0.2" />
      <Folder Include="Library\PackageCache\com.unity.modules.cloth@1.0.0" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\basecommands.zh-Hans.txt" />
+     <Folder Include="Assets\Palettes" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData.json" />
      <None Include="Library\PackageCache\com.unity.modules.unitywebrequestassetbundle@1.0.0\package.json" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\guihelp.en.txt" />
@@ -222,6 +224,7 @@
      <Folder Include="Library\PackageCache\com.unity.modules.androidjni@1.0.0" />
      <None Include="Library\PackageCache\com.unity.2d.tilemap.extras@2.2.5\package.json" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+     <Folder Include="Assets\Sprites\Backgrounds" />
      <Folder Include="Assets\TextMesh Pro\Shaders" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Gizmos" />
      <None Include="Library\PackageCache\com.unity.modules.audio@1.0.0\package.json" />
@@ -229,6 +232,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\cm-help.ja.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\clientcommon.en.txt" />
      <None Include="Library\PackageCache\com.unity.modules.physics@1.0.0\package.json" />
+     <Folder Include="Assets\Sprites\Ui" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@2.0.4" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\binmergetool.zh-Hans.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Localization\i3.es.txt" />

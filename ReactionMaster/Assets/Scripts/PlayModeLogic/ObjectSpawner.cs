@@ -1,6 +1,7 @@
 ﻿using Managers;
 using ScriptableObjects;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PlayModeLogic
 {
@@ -14,10 +15,18 @@ namespace PlayModeLogic
         [Header("Canvas Settings")] [SerializeField]
         private Canvas gameCanvas; // The canvas to spawn the buttons on
 
+        [Header("Grid Settings")] [SerializeField]
+        private int rows; // Number of rows in the grid
+
+        [SerializeField] private int columns; // Number of columns in the grid
+        [SerializeField] private Vector2 cellSpacing;
+
         private Button _activeButton;
+        private Image _activeButtonImage;
         private RectTransform _activeButtonRectTransform;
 
         [Header("Spawn Settings")] private RectTransform _canvasRectTransform;
+        private int _currentPositionIndex; // Current position index for button placement
 
         private Vector4 _margins;
         private float _spawnInterval;
@@ -37,42 +46,61 @@ namespace PlayModeLogic
         private void InitializeVariables()
         {
             _margins = GameManager.Instance.gameVariables.Margins;
+            SelectIndex();
+        }
+
+        private void SelectIndex()
+        {
+            _currentPositionIndex = Random.Range(0, rows * columns); // Reset position index
         }
 
         private void PrepareButton()
         {
             var newButton = Instantiate(buttonPrefab, gameCanvas.transform);
-            _activeButtonRectTransform = newButton.GetComponent<RectTransform>();
             _activeButton = newButton.GetComponent<Button>();
-            newButton.SetActive(false);
+            _activeButtonRectTransform = newButton.GetComponent<RectTransform>();
+            _activeButtonImage = newButton.GetComponent<Image>();
+            HideButton();
         }
 
 
         public void RecycleButton()
         {
             // Deactivate the previous button if it's active
-            if (_activeButtonRectTransform.gameObject.activeSelf)
-                _activeButtonRectTransform.gameObject.SetActive(false);
+            if (_activeButtonImage.enabled) _activeButtonImage.enabled = false;
 
-            // Randomly position the new button within the available space
+            // Calculate the available space considering margins and cell spacing
             var sizeDelta = _canvasRectTransform.sizeDelta;
             var availableWidth = sizeDelta.x - (_margins.x + _margins.z);
             var availableHeight = sizeDelta.y - (_margins.y + _margins.w);
 
-            var newX = Random.Range(_margins.x, _margins.x + availableWidth) - _canvasRectTransform.sizeDelta.x / 2;
-            var newY = Random.Range(_margins.w, _margins.w + availableHeight) - _canvasRectTransform.sizeDelta.y / 2;
+            // Calculate grid cell size without considering cell spacing
+            var cellWidth = availableWidth / columns;
+            var cellHeight = availableHeight / rows;
 
-            _activeButtonRectTransform.anchoredPosition = new Vector2(newX, newY);
+            // Calculate new position based on the current index
+            var row = _currentPositionIndex / columns;
+            var col = _currentPositionIndex % columns;
+            var newX = _margins.x + col * cellWidth + col * cellSpacing.x - sizeDelta.x / 2 + cellWidth / 2;
+            var newY = _margins.y + row * cellHeight + row * cellSpacing.y - sizeDelta.y / 2 + cellHeight / 2;
 
+            _activeButtonRectTransform.anchoredPosition = new Vector2(newX, -newY);
+
+            // Set button configuration
             _activeButton.SetButton(Random.value < GameManager.Instance.gameVariables.BadButtonProbability
                 ? buttonConfigs[1]
                 : buttonConfigs[0]);
-            _activeButtonRectTransform.gameObject.SetActive(true);
+            _activeButtonImage.enabled = true;
+
+            SelectIndex();
+
+            GameManager.Instance.gameVariables.UpdateSpawnTimeStamp();
         }
+
 
         public void HideButton()
         {
-            _activeButtonRectTransform.gameObject.SetActive(false);
+            _activeButtonImage.enabled = false;
         }
     }
 }

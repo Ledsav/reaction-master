@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49e2f830544402ebbdfaeb2af5b0ac9, type: 3}
   m_Name: GoodButton
   m_EditorClassIdentifier: 
-  buttonImage: {fileID: 21300000, guid: 23f322e9e15e8b045b6dc6bb1b4d2777, type: 3}
+  buttonImage: {fileID: 21300000, guid: 4f805759cd19f0740924a22716443c41, type: 3}
   buttonTag: GoodButton
-  buttonColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonColor: {r: 0.8313726, g: 0.87843144, b: 0.60784316, a: 1}
   buttonPoints: 10

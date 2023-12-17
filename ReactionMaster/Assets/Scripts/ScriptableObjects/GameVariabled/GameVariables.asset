@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: GameVariables
   m_EditorClassIdentifier: 
   numberOfButtonsToSpawn: 20
-  spawnedButtons: 6
-  spawnInterval: 0.5
+  spawnedButtons: 20
+  spawnInterval: 1
   margins: {x: 150, y: 400, z: 150, w: 150}
   badButtonProbability: 0.2
-  points: 0
+  leaderboard: 8c0000008c000000820000006e0000006400000032000000
+  points: 140

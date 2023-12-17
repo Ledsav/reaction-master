@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="game-container">
+    <iframe src="https://i.simmer.io/@Ledsav/screwdriver" style="width:960px;height:600px"></iframe>
+</div>
+<div class="description">
+    <h1>Screwdriver: A Unity Best Practices Showcase</h1>
+    <h2>Explore Core Principles of Game Development in "Screwdriver"</h2>
+
+    <p>Screwdriver is not just a game; it's an educational exploration into some of Unity's most effective game development practices. Designed for both players and developers, it demonstrates the application and benefits of key programming concepts in a real-world scenario.</p>
+
+    <h3>Key Implementations:</h3>
+    <ul>
+        <li><strong>Singleton Game Manager Logic:</strong> Screwdriver uses a Singleton Game Manager to centralize game management. This pattern allows for a single instance of a game manager class, ensuring global access while preventing the instantiation of multiple managers, leading to more organized and efficient code management.</li>
+        <li><strong>State Machine Implementation:</strong> The game features a state machine to manage the various states of game objects. This technique is crucial for handling complex game behaviors and transitions, making it easier to add new states and manage existing ones without extensive code modifications.</li>
+        <li><strong>Events Decoupling:</strong> To facilitate communication between different game components, Screwdriver employs events decoupling. This practice reduces dependencies between objects, making the game easier to debug and extend, as well as improving overall code maintainability.</li>
+        <li><strong>Scriptable Objects for Data Management:</strong> The game leverages Unity's Scriptable Objects for data management, enabling a more modular and flexible approach to handling game data. This method separates data from logic, allowing for easier adjustments and scalability of game content.</li>
+        <li><strong>Data Saving Techniques:</strong> An efficient data saving system is implemented in Screwdriver. This system illustrates best practices in persisting player progress and game state, which is essential for creating a user-friendly gaming experience where players can pick up exactly where they left off.</li>
+        <li><strong>Object Pooling:</strong> Screwdriver incorporates object pooling to optimize performance, especially in scenes with a high number of dynamic objects. By reusing objects instead of constantly creating and destroying them, the game minimizes overhead and improves runtime efficiency, crucial for maintaining smooth gameplay.</li>
+    </ul>
+
+    <p>"Screwdriver" serves as a practical example of how these Unity best practices can be applied in game development. The game is an ideal resource for those looking to understand these concepts in action, providing an instructive insight into effective game design and management.</p>
+
+    <p>For more details, visit the <a href="https://github.com/Ledsav/reaction-master" target="_blank">Screwdriver GitHub repository</a>.</p>
+</div>
+</body>
+</html>

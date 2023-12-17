@@ -11,12 +11,16 @@ namespace Managers
     {
         private static GameManager _instance;
 
-        [SerializeField] public GameVariables gameVariables;
+        [Header("References")] [SerializeField]
+        public GameVariables gameVariables;
+
         [SerializeField] public UiManager uiManager;
         [SerializeField] public AnimationManager animationManager;
         [SerializeField] public ObjectSpawner objectSpawner;
 
         [SerializeField] private GameState currentState;
+
+        private float _timer;
 
         public static GameManager Instance
         {
@@ -44,10 +48,13 @@ namespace Managers
             ChangeState(GameState.Menu);
         }
 
-        public void InitializeGame()
+        private void InitializeVariables()
         {
-            gameVariables.ResetGame();
+            _timer = Instance.gameVariables.NumberOfButtonsToSpawn *
+                     Instance.gameVariables.SpawnInterval;
+            Instance.uiManager.UpdateTimeLeftText(_timer);
         }
+
 
         private void ChangeState(GameState newState)
         {
@@ -73,33 +80,36 @@ namespace Managers
         // Example Game States
         private IEnumerator MenuState()
         {
-            // Access GameVariables here if needed
-            // ...
-
             while (currentState == GameState.Menu)
-                // Menu state execution code
-                // ...
                 yield return null;
         }
 
         private IEnumerator PlayModeState()
         {
             animationManager.PlayEnterGameAnimation();
-            yield return new WaitForSeconds(3f);
-
-            var timer = Instance.gameVariables.NumberOfButtonsToSpawn *
-                        Instance.gameVariables.SpawnInterval;
+            yield return new WaitForSeconds(2f); // Wait for the animation to finish
 
             while (currentState == GameState.PlayMode)
             {
                 Instance.objectSpawner.RecycleButton();
                 Instance.gameVariables.SpawnedButtons++;
                 yield return new WaitForSeconds(Instance.gameVariables.SpawnInterval);
-                timer -= Instance.gameVariables.SpawnInterval;
-                Instance.uiManager.UpdateTimeLeftText(timer);
+
+                if (Instance.gameVariables.SpawnTimeStamp - Instance.gameVariables.LastClickTimeStamp <=
+                    TimeSpan.FromSeconds(Instance.gameVariables.SpawnInterval))
+                    Instance.gameVariables.AddReactionTime(
+                        (float)(Instance.gameVariables.LastClickTimeStamp - Instance.gameVariables.SpawnTimeStamp)
+                        .TotalSeconds);
+
+                _timer -= Instance.gameVariables.SpawnInterval;
+                Instance.uiManager.UpdateTimeLeftText(_timer);
+
+                // checking end game condition
                 if (Instance.gameVariables.SpawnedButtons < Instance.gameVariables.NumberOfButtonsToSpawn) continue;
-                Instance.uiManager.UpdateTimeLeftText(0);
-                Instance.objectSpawner.HideButton();
+
+                Instance.gameVariables.AddToLeaderboard(Instance.gameVariables.Points);
+
+                // setting end game
                 OnGameOver();
             }
         }
@@ -110,18 +120,21 @@ namespace Managers
             Instance.uiManager.UpdatePointsText(Instance.gameVariables.Points);
 
             while (currentState == GameState.GameOver)
-                // GameOver state execution code
-                // ...
                 yield return null;
         }
 
-        public void OnGameOver()
+        private void OnGameOver()
         {
+            Instance.animationManager.PlayExitGameAnimation();
+            Instance.uiManager.UpdateTimeLeftText(0);
+            Instance.objectSpawner.HideButton();
             ChangeState(GameState.GameOver);
         }
 
         public void OnStartGame()
         {
+            InitializeVariables();
+            gameVariables.ResetGame();
             ChangeState(GameState.PlayMode);
         }
 
@@ -129,8 +142,5 @@ namespace Managers
         {
             ChangeState(GameState.Menu);
         }
-
-        // Additional methods to access or modify game variables
-        // Example: public void UpdateSomeGameVariable(Type newValue) { ... }
     }
 }

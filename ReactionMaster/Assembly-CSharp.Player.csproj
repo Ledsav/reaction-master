@@ -45,11 +45,12 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\GameVariabled\GameVariables.cs" />
      <Compile Include="Assets\Scripts\PlayModeLogic\Button.cs" />
      <Compile Include="Assets\Scripts\Utils\Enums.cs" />
+     <Compile Include="Assets\Scripts\Managers\PointManager.cs" />
      <Compile Include="Assets\Scripts\Managers\UiManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\AnimationManager.cs" />
      <Compile Include="Assets\Scripts\PlayModeLogic\ObjectSpawner.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Buttons\ButtonConfig.cs" />
-     <Compile Include="Assets\Scripts\Managers\PointManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\AnimationManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\CursorManager.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.27f1-x86_64\Editor\Data\PlaybackEngines\WebGLSupport\Managed\UnityEngine.dll</HintPath>
      </Reference>

@@ -1,4 +1,5 @@
 ﻿using System;
+using Managers;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,12 +16,12 @@ namespace PlayModeLogic
             _buttonImage = GetComponent<Image>();
         }
 
-        public static event Action<int> Clicked;
+        public static event Action<int?> Clicked;
 
         public void ClickButton()
         {
+            GameManager.Instance.gameVariables.UpdateLastClickTimeStamp();
             Clicked?.Invoke(_buttonPoints);
-            gameObject.SetActive(false);
         }
 
         public void SetButton(ButtonConfig buttonConfig)

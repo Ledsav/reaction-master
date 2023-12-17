@@ -1,3 +1,6 @@
 <a href="https://www.flaticon.com/free-icons/circle" title="circle icons">Circle icons created by Freepik - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/play-button" title="play button icons">Play button icons created by Those Icons - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/redo" title="redo icons">Redo icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/question" title="question icons">Question icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by Smashicons - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/construction-and-tools" title="construction and tools icons">Construction and tools icons created by bukeicon - Flaticon</a>
